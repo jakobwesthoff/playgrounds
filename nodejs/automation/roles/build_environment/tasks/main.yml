@@ -1,0 +1,6 @@
+---
+- name: "Install build-essential package"
+  apt: pkg="build-essential" state="latest"
+
+- name: "Install libssl-dev package"
+  apt: pkg="libssl-dev" state="latest"

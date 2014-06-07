@@ -1,0 +1,12 @@
+---
+- name: Provision Nodejs Playground
+  hosts: nodejs
+  sudo: yes
+  user: root
+  roles:
+      - role: "nvm"
+        versions:
+            - "0.8"
+            - "0.10"
+            - "0.11"
+        default: "0.10"

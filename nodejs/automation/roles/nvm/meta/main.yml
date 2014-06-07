@@ -1,0 +1,5 @@
+---
+dependencies:
+    - build_environment
+    - git
+    - cli_http

@@ -1,0 +1,3 @@
+---
+- name: "Install git package"
+  apt: pkg="git" state="latest"

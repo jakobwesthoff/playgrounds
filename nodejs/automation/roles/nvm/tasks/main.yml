@@ -1,0 +1,15 @@
+---
+- name: "Checkout nvm repository"
+  git: repo="https://github.com/creationix/nvm.git" dest="{{ homedir }}/.nvm" accept_hostkey="yes" update="yes"
+
+- name: "Installing nodejs versions"
+  shell: source {{ homedir }}/.nvm/nvm.sh && nvm install {{ item }}
+         executable="/bin/bash"
+  with_items: versions
+
+- name: "Activating default version"
+  shell: source {{ homedir }}/.nvm/nvm.sh && nvm alias default {{ default }}
+         executable="/bin/bash"
+
+- name: "Ensure nvm is loaded during login"
+  lineinfile: dest="{{ homedir }}/.bashrc" line="source {{ homedir }}/.nvm/nvm.sh" state="present" insertafter="EOF"

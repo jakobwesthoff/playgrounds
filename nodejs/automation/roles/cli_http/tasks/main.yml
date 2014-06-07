@@ -1,0 +1,6 @@
+---
+- name: "Install curl package"
+  apt: pkg="curl" state="latest"
+
+- name: "Install wget package"
+  apt: pkg="wget" state="latest"
