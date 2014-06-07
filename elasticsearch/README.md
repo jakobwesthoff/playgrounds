@@ -1,6 +1,6 @@
 # Elasticsearch Playground
 
-This is a simple Playground to containing a [Elasticsearch]() Daemon. Mainly
+This is a simple Playground to containing a [Elasticsearch](http://elasticsearch.org) Daemon. Mainly
 created for playing around with the search index for demoing or testing
 purposes.
 
