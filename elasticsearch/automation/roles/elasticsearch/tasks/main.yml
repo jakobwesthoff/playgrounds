@@ -1,0 +1,17 @@
+---
+- name: "Install Elasticsearch repository key"
+  apt_key: url="http://packages.elasticsearch.org/GPG-KEY-elasticsearch" state="present"
+
+- name: "Add Elasticsearch repository"
+  apt_repository: repo="deb http://packages.elasticsearch.org/elasticsearch/1.2/debian stable main" state="present" update_cache="yes"
+
+- name: "Install Elasticsearch"
+  apt: name="elasticsearch" state="latest" install_recommends="yes"
+
+- name: "Configure Elasticsearch to be run upon boot"
+  sudo: yes
+  shell: update-rc.d elasticsearch defaults 95 10
+
+- name: "Start Elasticsearch Daemon"
+  sudo: yes
+  shell: /etc/init.d/elasticsearch start

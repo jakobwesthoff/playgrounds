@@ -1,0 +1,15 @@
+---
+- name: Install python-software-properties
+  apt: name="python-software-properties" state="latest" update_cache="yes"
+ 
+- name: Add wepupd8/java PPA to registry
+  apt_repository: repo="ppa:webupd8team/java"
+ 
+- name: Autoaccept license for Java
+  shell: echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+ 
+- name: Install Java 7
+  apt: pkg="oracle-java7-installer" state="latest" install_recommends="yes" update_cache="yes"
+ 
+- name: Set Java 7 environment as default
+  apt: pkg="oracle-java7-set-default" state="latest" install_recommends="yes"
