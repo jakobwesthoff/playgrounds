@@ -1,15 +1,21 @@
 ---
 - name: "Checkout nvm repository"
   git: repo="https://github.com/creationix/nvm.git" dest="{{ homedir }}/.nvm" accept_hostkey="yes" update="yes"
+  sudo: yes
+  sudo_user: "{{ user }}"
 
 - name: "Installing nodejs versions"
   shell: source {{ homedir }}/.nvm/nvm.sh && nvm install {{ item }}
          executable="/bin/bash"
   with_items: versions
+  sudo: yes
+  sudo_user: "{{ user }}"
 
 - name: "Activating default version"
   shell: source {{ homedir }}/.nvm/nvm.sh && nvm alias default {{ default }}
          executable="/bin/bash"
+  sudo: yes
+  sudo_user: "{{ user }}"
 
 - name: "Ensure nvm is loaded during login"
   lineinfile: dest="{{ homedir }}/.bashrc" line="source {{ homedir }}/.nvm/nvm.sh" state="present" insertafter="EOF"

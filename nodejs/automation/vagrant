@@ -5,3 +5,4 @@ vagrant
 
 [nodejs:vars]
 homedir="/home/vagrant"
+user="vagrant"
