@@ -27,4 +27,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       ansible.playbook = "automation/provision.yml"
       ansible.verbose = false
   end
+
+  config.vm.synced_folder "./data", "/home/vagrant/data"
 end
