@@ -1,8 +1,7 @@
 ---
 - name: Provision Elasticsearch Playground
-  hosts: all
+  hosts: elasticsearch
   sudo: yes
   user: root
   roles:
-    - java
     - elasticsearch
