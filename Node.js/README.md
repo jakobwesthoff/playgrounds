@@ -22,6 +22,6 @@ The IP address of the VM is `33.33.22.101`.
 
 After the VM is booted you may connect to it by executing `vagrant ssh`.
 
-The directory `data` is shared between the host system and the VM. Inside the
-VM it is accessible as `/home/vagrant/data`. It can be used to easily transport
+The directory `Shared` is shared between the host system and the VM. Inside the
+VM it is accessible as `/home/vagrant/Shared`. It can be used to easily transport
 source code between VM and host system.
