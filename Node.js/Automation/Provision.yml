@@ -4,6 +4,7 @@
   sudo: yes
   user: root
   roles:
+      - bash_environment
       - role: "nvm"
         versions:
             - "0.8"

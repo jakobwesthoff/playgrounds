@@ -2,3 +2,8 @@ vagrant ansible_ssh_host=33.33.22.101 ansible_ssh_private_key_file=~/.vagrant.d/
 
 [elasticsearch]
 vagrant
+
+[elasticsearch:vars]
+bash_prompt_name="ESEARCH"
+homedir="/home/vagrant"
+user="vagrant"

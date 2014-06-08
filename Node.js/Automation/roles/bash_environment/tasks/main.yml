@@ -1,0 +1,26 @@
+---
+- name: "Create customized .bashrc configuration"
+  template: src="bashrc.j2" dest="{{ item.homedir }}/.bashrc" owner="{{ item.user }}" group="{{ item.user }}"
+  with_items:
+      - { homedir: "{{ homedir }}", user: "{{ user }}" }
+      - { homedir: "/root", user: "root" }
+
+- name: "Create formatted gitprompt functions"
+  copy: src="gitprompt.sh" dest="{{ item.homedir }}/.gitprompt.sh" owner="{{ item.user }}" group="{{ item.user }}"
+  with_items:
+      - { homedir: "{{ homedir }}", user: "{{ user }}" }
+      - { homedir: "/root", user: "root" }
+
+- name: "Create useful bash aliases"
+  copy: src="bash_aliases" dest="{{ item.homedir }}/.bash_aliases" owner="{{ item.user }}" group="{{ item.user }}"
+  with_items:
+      - { homedir: "{{ homedir }}", user: "{{ user }}" }
+      - { homedir: "/root", user: "root" }
+
+- name: "Create solarized theme compatible .dircolors"
+  copy: src="dircolors" dest="{{ item.homedir }}/.dircolors" owner="{{ item.user }}" group="{{ item.user }}"
+  with_items:
+      - { homedir: "{{ homedir }}", user: "{{ user }}" }
+      - { homedir: "/root", user: "root" }
+
+

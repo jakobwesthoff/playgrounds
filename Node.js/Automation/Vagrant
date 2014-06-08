@@ -4,5 +4,6 @@ vagrant ansible_ssh_host=33.33.22.101 ansible_ssh_private_key_file=~/.vagrant.d/
 vagrant
 
 [nodejs:vars]
+bash_prompt_name="JS"
 homedir="/home/vagrant"
 user="vagrant"
