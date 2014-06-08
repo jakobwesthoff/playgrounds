@@ -22,11 +22,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "ansible" do |ansible|
-      ansible.inventory_path = "automation/vagrant"
+      ansible.inventory_path = "Automation/Vagrant"
       ansible.limit = "all"
-      ansible.playbook = "automation/provision.yml"
+      ansible.playbook = "Automation/Provision.yml"
       ansible.verbose = false
   end
 
-  config.vm.synced_folder "./data", "/home/vagrant/data"
+  config.vm.synced_folder "./Shared", "/home/vagrant/Shared"
 end
