@@ -8,10 +8,10 @@ I am publishing those VMs, as they might be able to help people in need of simpl
 
 ## Usage
 
-In order to make use of any playground you need to have a recent version of [vagrant](http://www.vagrantup.com/) as well as [Ansible](http://www.ansible.com/home) installed on your system. After having done so, just switch to any of the playground directories and execute the `vagrant up` command. The corresponding VM will automatically be build, provisioned and run. A `vagrant ssh` call allows you to *enter* the VM after it has been created.
+In order to make use of any playground you need to have a recent version of [Vagrant](http://www.vagrantup.com/) as well as [Ansible](http://www.ansible.com/home) installed on your system. After having done so, just switch to any of the playground directories and execute the `vagrant up` command. The corresponding VM will automatically be build, provisioned and run. A `vagrant ssh` call allows you to *enter* the VM after it has been created.
 
 Further information regarding each playground can be found in its corresponding README file.
 
-A [blogpost](http://www.westhoffswelt.de/blog/2014/6/10/playgrounds-with-vagrant-and-ansible) regarding this repository, which contains some further information
-can be found in my [personal
-blog](http://www.westhoffswelt.de/blog/2014/6/10/playgrounds-with-vagrant-and-ansible)
+## Further reading
+
+A [blogpost](http://www.westhoffswelt.de/blog/2014/6/10/playgrounds-with-vagrant-and-ansible) regarding this repository, which contains some further information can be found in my [personal blog](http://www.westhoffswelt.de/blog/2014/6/10/playgrounds-with-vagrant-and-ansible)
