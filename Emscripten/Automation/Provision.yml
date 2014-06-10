@@ -1,0 +1,12 @@
+---
+- name: Provision Emscripten Playground
+  hosts: emscripten
+  sudo: yes
+  user: root
+  roles:
+      - "Bash Environment"
+      - role: "nvm"
+        versions:
+            - "0.10"
+        default: "0.10"
+      - Emscripten
