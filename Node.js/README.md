@@ -18,7 +18,7 @@ installed:
 
 All node versions are managed using **nvm**.
 
-The IP address of the VM is `33.33.22.101`.
+The IP address of the VM is `33.33.22.102`.
 
 After the VM is booted you may connect to it by executing `vagrant ssh`.
 
