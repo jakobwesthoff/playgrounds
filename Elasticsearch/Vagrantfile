@@ -20,6 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "ansible" do |ansible|
+      ENV['ANSIBLE_CONFIG'] = "./Automation/ansible.cfg"
       ansible.inventory_path = "Automation/Vagrant"
       ansible.limit = "all"
       ansible.playbook = "Automation/Provision.yml"
