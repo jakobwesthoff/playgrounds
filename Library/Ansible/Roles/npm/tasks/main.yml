@@ -1,0 +1,30 @@
+---
+- name: "Installing global npm packages"
+  shell: source {{ homedir }}/.nvm/nvm.sh && nvm use {{ item.1 }} && npm install -g '{{ item.0.name }}@{{ item.0.version }}'
+         executable="/bin/bash"
+  with_subelements: 
+    - global
+    - "use"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Creating local install directories"
+  file: path="{{ item.dest }}" state="directory"
+  with_items: local
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Installing local npm packages"
+  shell: source {{ homedir }}/.nvm/nvm.sh && nvm use {{ item.use }} && cd '{{ item.dest }}' && npm install '{{ item.name }}@{{ item.version }}'
+         executable="/bin/bash"
+  with_items: local
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Initializing project directories"
+  shell: source {{ homedir }}/.nvm/nvm.sh && nvm use {{ item.use }} && cd '{{ item.dest }}' && npm install
+         executable="/bin/bash"
+  with_items: init
+  sudo: yes
+  sudo_user: "{{ user }}"
+

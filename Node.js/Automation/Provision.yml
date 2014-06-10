@@ -3,6 +3,11 @@
   hosts: nodejs
   sudo: yes
   user: root
+  pre_tasks:
+    - name: "Checkout js-browser-seed repository"
+      git: repo="https://github.com/jakobwesthoff/seed-js-browser.git" dest="{{ homedir }}/Playground" accept_hostkey="yes" update="yes"
+      sudo: yes
+      sudo_user: "{{ user }}"
   roles:
       - "Bash Environment"
       - role: "nvm"
@@ -11,3 +16,14 @@
             - "0.10"
             - "0.11"
         default: "0.10"
+      - role: "npm"
+        global:
+            - { name: "grunt-cli", version: "*", use: ["0.10", "0.11"] }
+            - { name: "gulp", version: "*", use: ["0.10", "0.11"] }
+            - { name: "bower", version: "*", use: ["0.10", "0.11"] }
+            - { name: "uglify-js", version: "*", use: ["0.10", "0.11"] }
+            - { name: "coffee-script-redux", version: "*", use: ["0.10", "0.11"] }
+            - { name: "typescript", version: "*", use: ["0.10", "0.11"] }
+            - { name: "traceur", version: "*", use: ["0.10", "0.11"] }
+        init:
+            - { dest: "{{ homedir }}/Playground", use: "0.10" }

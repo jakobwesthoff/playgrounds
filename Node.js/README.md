@@ -16,6 +16,19 @@ installed:
     - 0.10.x
     - 0.11.x
 
+After the environment is set up the following nodejs packages are installed
+globally for node versions 0.10.x and 0.11.x via [npm](http://npmjs.org):
+
+- [Grunt](http://gruntjs.com/)
+- [Gulp](http://gulpjs.com)
+- [Bower](http://bower.io)
+- [Uglify-JS](https://github.com/mishoo/UglifyJS)
+- [CoffeeScript](https://github.com/michaelficarra/CoffeeScriptRedux)
+- [LiveScript](http://livescript.net/)
+- [Traceur](https://github.com/google/traceur-compiler)
+
+In addition to the globally installed packages the most recent version of my [JavaScript Browser Seed Project](https://github.com/jakobwesthoff/seed-js-browser) will be installed and setup under `/home/vagrant/Playground`.
+
 All node versions are managed using **nvm**.
 
 The IP address of the VM is `33.33.22.102`.
