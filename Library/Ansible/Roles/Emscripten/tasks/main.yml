@@ -1,0 +1,50 @@
+---
+- name: "Checkout emscripten-fastcomp repository"
+  git: repo="https://github.com/kripken/emscripten-fastcomp.git" dest="{{ path }}/Library/emscripten-fastcomp" accept_hostkey="yes" update="no"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Checkout emscripten-fastcomp-clang repository"
+  git: repo="https://github.com/kripken/emscripten-fastcomp-clang.git" dest="{{ path }}/Library/emscripten-fastcomp-clang" accept_hostkey="yes" update="no"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Link Clang sources for compiling"
+  file: src="{{ path }}/Library/emscripten-fastcomp-clang" dest="{{ path }}/Library/emscripten-fastcomp/tools/clang" state="link"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Create build directory"
+  file: path="{{ path }}/Library/emscripten-fastcomp-build" state="directory"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Configure LLVM Build Environment using CMake"
+  shell: cmake ../emscripten-fastcomp -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD="X86;JSBackend" -DLLVM_INCLUDE_EXAMPLES=OFF -DLLVM_INCLUDE_TESTS=OFF -DCLANG_INCLUDE_EXAMPLES=OFF -DCLANG_INCLUDE_TESTS=OFF
+         chdir="{{ path }}/Library/emscripten-fastcomp-build"
+         executable="/bin/bash"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Compile LLVM (Clang) - THIS WILL TAKE A LONG TIME!"
+  shell: make -j{{ ansible_processor_cores }}
+         chdir="{{ path }}/Library/emscripten-fastcomp-build"
+         executable="/bin/bash"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Link built LLVM into the Sourcetree"
+  file: src="{{ path }}/Library/emscripten-fastcomp-build" dest="{{ path }}/Library/emscripten-fastcomp/build" state="link"
+
+- name: "Checkout Emscripten itself"
+  git: repo="https://github.com/kripken/emscripten.git" dest="{{ path }}/SDK" accept_hostkey="yes" update="no"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Generate proper .emscripten configuration"
+  template: src="emscripten" dest="{{ homedir }}/.emscripten"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Add Emscripten to PATH"
+  lineinfile: dest="{{ homedir }}/.bashrc" line='PATH="{{ path }}/SDK:$PATH"' state="present" insertafter="EOF"

@@ -1,0 +1,6 @@
+---
+dependencies:
+    - "Build Environment"
+    - CMake
+    - Git
+    - Java
