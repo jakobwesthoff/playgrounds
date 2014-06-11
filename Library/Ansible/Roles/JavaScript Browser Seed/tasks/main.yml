@@ -1,0 +1,5 @@
+---
+- name: "Checkout js-browser-seed repository"
+  git: repo="https://github.com/jakobwesthoff/seed-js-browser.git" dest="{{ dest }}" accept_hostkey="yes" update="yes"
+  sudo: yes
+  sudo_user: "{{ user }}"
