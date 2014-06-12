@@ -1,0 +1,60 @@
+---
+- name: "Create CouchDB directory structure"
+  file: path="{{ item }}" state="directory"
+  sudo: yes
+  sudo_user: "{{ user }}"
+  with_items:
+      - "{{ homedir }}/Source"
+      - "{{ homedir }}/CouchDB"
+
+- name: "Download CouchDB release"
+  get_url: url="{{ url }}" dest="{{ homedir }}/Source/{{ path }}.tar.gz"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Unpack CouchDB release"
+  unarchive: copy="no" src="{{ homedir }}/Source/{{ path }}.tar.gz" dest="{{ homedir }}/Source/"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Prepare CouchDB build"
+  shell: ./configure --prefix="{{ homedir }}/CouchDB/"
+         chdir="{{ homedir }}/Source/{{ path }}"
+         executable="/bin/bash"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Build CouchDB"
+  shell: make -j{{ ansible_processor_cores }}
+         chdir="{{ homedir }}/Source/{{ path }}"
+         executable="/bin/bash"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Install CouchDB"
+  shell: make install
+         chdir="{{ homedir }}/Source/{{ path }}"
+         executable="/bin/bash"
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Configure CouchDB"
+  template: src="{{ item.src }}" dest="{{ item.dest }}"
+  with_items:
+      - { src: "default", dest: "{{ homedir }}/CouchDB/etc/default/couchdb" }
+      - { src: "local.ini", dest: "{{ homedir }}/CouchDB/etc/couchdb/local.ini" }
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: "Link CouchDB configuration files to system locations"
+  file: src="{{ item.src }}" dest="{{ item.dest }}" state="link"
+  with_items:
+      - { src: "{{ homedir }}/CouchDB/etc/init.d/couchdb", dest: "/etc/init.d/couchdb" }
+      - { src: "{{ homedir }}/CouchDB/etc/default/couchdb", dest: "/etc/default/couchdb" }
+
+- name: "Configure CouchDb to be run upon boot"
+  shell: update-rc.d couchdb defaults 95 10
+
+- name: "Start CouchDB"
+  shell: /etc/init.d/couchdb start
+         executable="/bin/bash"

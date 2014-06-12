@@ -1,0 +1,6 @@
+---
+dependencies:
+    - "Build Environment"
+    - "Erlang"
+    - "Spidermonkey"
+    - "ICU"
