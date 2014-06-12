@@ -9,9 +9,7 @@
   apt: name="elasticsearch" state="latest" install_recommends="yes"
 
 - name: "Configure Elasticsearch to be run upon boot"
-  sudo: yes
   shell: update-rc.d elasticsearch defaults 95 10
 
 - name: "Start Elasticsearch Daemon"
-  sudo: yes
   shell: /etc/init.d/elasticsearch start
