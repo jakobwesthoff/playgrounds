@@ -1,0 +1,6 @@
+---
+- name: "Install Spidermonkey Libraries"
+  apt: package="{{ item }}" state="latest"
+  with_items:
+      - "libmozjs185-1.0"
+      - "libmozjs185-dev"
