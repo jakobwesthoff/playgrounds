@@ -1,0 +1,6 @@
+---
+- name: "Install ICU Library"
+  apt: package="{{ item }}" state="latest"
+  with_items:
+    - "libicu52"
+    - "libicu-dev"
