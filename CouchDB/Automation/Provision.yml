@@ -1,0 +1,8 @@
+---
+- name: Provision CouchDB Playground
+  hosts: couchdb
+  sudo: yes
+  user: root
+  roles:
+      - "Bash Environment"
+      - "CouchDB"
