@@ -42,7 +42,7 @@ The following list depicts a short summary of the available Playgrounds as well 
 	- No running external services
 	- Shared Folder: `Shared` -> `/home/vagrant/Shared`
 - **Node.js** - Environment containing different Nodejs versions as well as several basic npm packages and my [JavaScript Browser Seed](https://github.com/jakobwesthoff/seed-js-browser) as a starting point.
-	- IP: 33.33.22.102
+	- IP: 10.152.149.102
 	- No running external services
 	- Shared Folder: `Shared` -> `/home/vagrant/Shared`
 
