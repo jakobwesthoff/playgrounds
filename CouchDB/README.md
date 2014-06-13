@@ -13,10 +13,10 @@ installed:
 - libICU
 - CouchDB 1.6.0
 
-The IP address of the VM is `33.33.22.104`.
+The IP address of the VM is `10.152.149.104`.
 
 After the VM is booted you may connect to its CouchDB instance on port `5984`.
-Try opening `http://33.33.22.104:5984/_utils/` to connect to the CouchDBs admin
+Try opening `http://10.152.149.104:5984/_utils/` to connect to the CouchDBs admin
 interface.
 
 All CouchDB related files and executables are stored in
