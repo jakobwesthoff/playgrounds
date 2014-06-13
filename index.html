@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Vagrant Playgrounds by jakobwesthoff</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Vagrant Playgrounds</h1>
+        <h2>A bunch of simple vagrant/ansible based playgrounds, with different environments and services.</h2>
+        <a href="https://github.com/jakobwesthoff/playgrounds" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="playgrounds" class="anchor" href="#playgrounds"><span class="octicon octicon-link"></span></a>Playgrounds</h1>
+
+<p>A bunch of simple vagrant/ansible based playgrounds, with different environments and services installed.</p>
+
+<p>Mostly those Vagrant based VMs are used by myself to test or demonstrate things regarding different technologies and/or daemons during conferences and trainings. Furthermore I am using them to play around with certain ideas and technologies, without affecting my base system.</p>
+
+<p>I am publishing those VMs, as they might be able useful to other people as well. Pull requests with new Playgrounds, or additions and fixes of already existing ones are of course always welcome.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>In order to make use of any playground you need to have a recent version of <a href="http://www.vagrantup.com/">Vagrant</a> as well as <a href="http://www.ansible.com/home">Ansible</a> installed on your system. After having done so, just switch to any of the playground directories and execute the <code>vagrant up</code> command. The corresponding VM will automatically be build, provisioned and run. A <code>vagrant ssh</code> call allows you to <em>enter</em> the VM after it has been created.</p>
+
+<p>Further information regarding each playground can be found in its corresponding README file.</p>
+
+<h3>
+<a name="useful-vagrant-commands" class="anchor" href="#useful-vagrant-commands"><span class="octicon octicon-link"></span></a>Useful Vagrant commands</h3>
+
+<p>The commands you will most like need during your work with <em>Vagrant</em> and any of the Playgrounds are the following:</p>
+
+<ul>
+<li>
+<code>vagrant up</code> - Boot up the corresponding Playground</li>
+<li>
+<code>vagrant halt</code> - Shutdown the Playgrounds VM</li>
+<li>
+<code>vagrant ssh</code> - Connect into the VM via ssh.</li>
+<li>
+<code>vagrant provision</code> - Rerun the provisioner (Ansible) in order to setup the environment (Especially useful if you changed some of the provisioning files and want to apply your changes without rebuilding the whole VM.)</li>
+<li>
+<code>vagrant destroy</code> - Destroy the created VM to free HDD space. (<strong>Warning</strong>: This will destroy all your customizations of course.)</li>
+</ul><p><strong>Tip:</strong> All these commands need to be executed from within the Playgrounds directory, as Vagrant searches for the VM to manage under the current working directory. </p>
+
+<h2>
+<a name="existing-playgrounds" class="anchor" href="#existing-playgrounds"><span class="octicon octicon-link"></span></a>Existing Playgrounds</h2>
+
+<p>The following list depicts a short summary of the available Playgrounds as well as there most important information. Detailed information about each of the Playgrounds can be found inside the README file placed inside their corresponding directory.</p>
+
+<ul>
+<li>
+<strong>CouchDB</strong> - Recent Erlang Environment as well as CouchDB installation
+
+<ul>
+<li>IP: 33.33.22.104</li>
+<li>CouchDB Port: 5984</li>
+<li>No shared folders</li>
+</ul>
+</li>
+<li>
+<strong>Elasticsearch</strong> - Recent Elasticsearch installation
+
+<ul>
+<li>IP: 33.33.22.101</li>
+<li>Elasticsearch Port: 9200</li>
+<li>No shared folders</li>
+</ul>
+</li>
+<li>
+<strong>Emscripten</strong> - Recent Emscripten compile environment using the latest backend
+
+<ul>
+<li>IP: 33.33.22.103</li>
+<li>No running external services</li>
+<li>Shared Folder: <code>Shared</code> -&gt; <code>/home/vagrant/Shared</code>
+</li>
+</ul>
+</li>
+<li>
+<strong>Node.js</strong> - Environment containing different Nodejs versions as well as several basic npm packages and my <a href="https://github.com/jakobwesthoff/seed-js-browser">JavaScript Browser Seed</a> as a starting point.
+
+<ul>
+<li>IP: 33.33.22.102</li>
+<li>No running external services</li>
+<li>Shared Folder: <code>Shared</code> -&gt; <code>/home/vagrant/Shared</code>
+</li>
+</ul>
+</li>
+</ul><h2>
+<a name="technology" class="anchor" href="#technology"><span class="octicon octicon-link"></span></a>Technology</h2>
+
+<p>The VMs are all managed using <a href="http://www.vagrantup.com">Vagrant</a>, a commandline based Toolchain to build, control and manage all different kinds of virtualization software. By default <em>Vagrant</em> uses <a href="https://www.virtualbox.org/">VirtualBox</a> as a virtualization environment. Eventhough other Backends are supported nowadays, I only tested the Playgrounds with <em>VirtualBox</em>.</p>
+
+<p>In order to provision the VMs (aka. install and configure the needed environment) I am using <a href="http://www.ansible.com">Ansible</a> in favor of <a href="http://puppetlabs.com/">Puppet</a>. Eventhough I used <em>Puppet</em> for quite some time I currently prefer <em>Ansible</em> as it allows for a cleaner structure and syntax in my opinion.</p>
+
+<p>The different Playgrounds and <em>Ansible Roles</em> can furthermore be a nice example, of how to structure and utilize <em>Ansible</em> to provision VMs or bare metal machines.</p>
+
+<p>The different <em>Roles</em> (Ansible speak for a common group of tasks) are shared between all VM definitions and can be found at <code>Library/Ansible/Roles</code>.</p>
+
+<h2>
+<a name="further-reading" class="anchor" href="#further-reading"><span class="octicon octicon-link"></span></a>Further reading</h2>
+
+<p>A <a href="http://www.westhoffswelt.de/blog/2014/6/10/playgrounds-with-vagrant-and-ansible">blogpost</a> regarding this repository, which contains some further information can be found in my <a href="http://www.westhoffswelt.de/blog/2014/6/10/playgrounds-with-vagrant-and-ansible">personal blog</a></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/jakobwesthoff/playgrounds/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/jakobwesthoff/playgrounds/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/jakobwesthoff/playgrounds"></a> is maintained by <a href="https://github.com/jakobwesthoff">jakobwesthoff</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
