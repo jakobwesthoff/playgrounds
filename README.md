@@ -34,7 +34,7 @@ The following list depicts a short summary of the available Playgrounds as well 
 	- CouchDB Port: 5984
 	- No shared folders
 - **Elasticsearch** - Recent Elasticsearch installation
-	- IP: 33.33.22.101
+	- IP: 10.152.149.101
 	- Elasticsearch Port: 9200
 	- No shared folders
 - **Emscripten** - Recent Emscripten compile environment using the latest backend
