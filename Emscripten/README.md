@@ -19,7 +19,7 @@ installed:
 
 The installed nodejs is managed using **nvm**.
 
-The IP address of the VM is `33.33.22.103`.
+The IP address of the VM is `10.152.149.103`.
 
 After the VM is booted you may connect to it by executing `vagrant ssh`.
 
