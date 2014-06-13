@@ -13,7 +13,7 @@ installed:
 - Oracle Java 7
 - Elasticsearch 1.2.x
 
-The IP address of the VM is `33.33.22.101`.
+The IP address of the VM is `10.152.149.101`.
 
 After the VM is booted the **Elasticsearch** service can be reached at port
 `9200`.

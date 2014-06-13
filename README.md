@@ -30,19 +30,19 @@ The commands you will most like need during your work with *Vagrant* and any of 
 The following list depicts a short summary of the available Playgrounds as well as there most important information. Detailed information about each of the Playgrounds can be found inside the README file placed inside their corresponding directory. More Playgrounds will be created and pushed over time.
 
 - **CouchDB** - Recent Erlang Environment as well as CouchDB installation
-	- IP: 33.33.22.104
+	- IP: 10.152.149.104
 	- CouchDB Port: 5984
 	- No shared folders
 - **Elasticsearch** - Recent Elasticsearch installation
-	- IP: 33.33.22.101
+	- IP: 10.152.149.101
 	- Elasticsearch Port: 9200
 	- No shared folders
 - **Emscripten** - Recent Emscripten compile environment using the latest backend
- 	- IP: 33.33.22.103
+ 	- IP: 10.152.149.103
 	- No running external services
 	- Shared Folder: `Shared` -> `/home/vagrant/Shared`
 - **Node.js** - Environment containing different Nodejs versions as well as several basic npm packages and my [JavaScript Browser Seed](https://github.com/jakobwesthoff/seed-js-browser) as a starting point.
-	- IP: 33.33.22.102
+	- IP: 10.152.149.102
 	- No running external services
 	- Shared Folder: `Shared` -> `/home/vagrant/Shared`
 
