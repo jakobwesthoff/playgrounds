@@ -27,7 +27,7 @@ The commands you will most like need during your work with *Vagrant* and any of 
 
 ## Existing Playgrounds
 
-The following list depicts a short summary of the available Playgrounds as well as there most important information. Detailed information about each of the Playgrounds can be found inside the README file placed inside their corresponding directory.
+The following list depicts a short summary of the available Playgrounds as well as there most important information. Detailed information about each of the Playgrounds can be found inside the README file placed inside their corresponding directory. More Playgrounds will be created and pushed over time.
 
 - **CouchDB** - Recent Erlang Environment as well as CouchDB installation
 	- IP: 33.33.22.104
