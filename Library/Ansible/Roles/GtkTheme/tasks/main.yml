@@ -1,0 +1,7 @@
+---
+- name: "Installing light themes (ambiance/radiance)"
+  apt: pkg="light-themes" state="latest"
+- name: "Setting active GTK theme"
+  template: src="gtkrc-2.0" dest="{{ homedir }}/.gtkrc-2.0"
+  sudo: yes
+  sudo_user: "{{ user }}"

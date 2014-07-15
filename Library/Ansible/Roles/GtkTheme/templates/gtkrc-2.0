@@ -1,0 +1,2 @@
+include "/usr/share/themes/{{ theme }}//gtk-2.0/gtkrc"
+include "{{ homedir }}/.gtkrc-2.0.mine"
