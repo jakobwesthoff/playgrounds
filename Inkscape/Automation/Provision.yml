@@ -1,0 +1,9 @@
+---
+- name: Provision Inkscape Playground
+  hosts: inkscape
+  sudo: yes
+  user: root
+  roles:
+      - "Bash Environment"
+      - "XAuth"
+      - "Inkscape"

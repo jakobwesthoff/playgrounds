@@ -45,6 +45,10 @@ The following list depicts a short summary of the available Playgrounds as well 
 	- IP: 10.152.149.102
 	- No running external services
 	- Shared Folder: `Shared` -> `/home/vagrant/Shared`
+- **Inkscape** - Inkscape installation within a VM allowing to run and export a clean Inkscape instance using SSH
+	- IP: 10.152.149.105
+	- No running external services
+	- Shared Folder: `Shared` -> `/home/vagrant/Shared`
 
 
 ## Technology

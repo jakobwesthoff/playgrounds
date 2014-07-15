@@ -1,0 +1,3 @@
+---
+- name: "Install xauth package"
+  apt: pkg="xauth" state="latest"
