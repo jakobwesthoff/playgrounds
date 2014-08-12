@@ -1,5 +1,5 @@
 ---
 dependencies:
-    - "Build Environment"
-    - "Git"
-    - "CLI Http"
+    - BuildEnvironment
+    - Git
+    - CLIHttp

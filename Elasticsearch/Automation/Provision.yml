@@ -4,5 +4,5 @@
   sudo: yes
   user: root
   roles:
-    - "Bash Environment"
-    - "Elasticsearch"
+    - BashEnvironment
+    - Elasticsearch

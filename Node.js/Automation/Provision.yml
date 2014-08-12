@@ -4,16 +4,16 @@
   sudo: yes
   user: root
   roles:
-      - "Bash Environment"
-      - role: "nvm"
+      - BashEnvironment
+      - role: nvm
         versions:
             - "0.8"
             - "0.10"
             - "0.11"
         default: "0.10"
-      - role: "JavaScript Browser Seed"
+      - role: JavaScriptBrowserSeed
         dest: "{{ homedir }}/Playground"
-      - role: "npm"
+      - role: npm
         global:
             - { name: "grunt-cli", version: "*", use: ["0.10", "0.11"] }
             - { name: "gulp", version: "*", use: ["0.10", "0.11"] }

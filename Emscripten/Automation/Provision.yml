@@ -4,8 +4,8 @@
   sudo: yes
   user: root
   roles:
-      - "Bash Environment"
-      - role: "nvm"
+      - BashEnvironment
+      - role: nvm
         versions:
             - "0.10"
         default: "0.10"
