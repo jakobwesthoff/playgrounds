@@ -10,12 +10,14 @@
             - "0.8"
             - "0.10"
             - "0.11"
-        default: "0.10"
+            - "0.12"
+        default: "0.12"
       - role: JavaScriptBrowserSeed
+        #dest: "{{ homedir }}/Playground"
         dest: "{{ homedir }}/Playground"
       - role: npm
         global:
-            - { name: "grunt-cli", version: "*", use: ["0.10", "0.11"] }
+          #  - { name: "grunt-cli", version: "*", use: ["0.10", "0.11"] }
             - { name: "gulp", version: "*", use: ["0.10", "0.11"] }
             - { name: "bower", version: "*", use: ["0.10", "0.11"] }
             - { name: "uglify-js", version: "*", use: ["0.10", "0.11"] }

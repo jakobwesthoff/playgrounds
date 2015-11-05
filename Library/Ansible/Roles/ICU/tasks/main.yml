@@ -1,6 +1,6 @@
 ---
 - name: "Install ICU Library"
-  apt: package="{{ item }}" state="latest"
+  apt: package="{{ item }}" state="latest" update_cache=yes
   with_items:
     - "libicu52"
     - "libicu-dev"

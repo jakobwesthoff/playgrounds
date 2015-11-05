@@ -8,7 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "couchdb.local"
   config.vm.network :private_network, ip: "10.152.149.104"
 
-  config.vm.box = "chef/ubuntu-14.04"
+  #config.vm.box = "chef/ubuntu-14.04"
+  config.vm.box = "ubuntu/trusty64"
 
   config.vm.provider :virtualbox do |vb|
       vb.name = "CouchDB Playground"

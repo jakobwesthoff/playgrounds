@@ -29,5 +29,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       ansible.verbose = false
   end
 
-  config.vm.synced_folder "./Shared", "/home/vagrant/Shared"
+  config.vm.synced_folder "../site", "/home/vagrant/Shared"
 end
