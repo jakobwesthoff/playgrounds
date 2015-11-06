@@ -1,4 +1,7 @@
 ---
+- name: Update Apt
+  apt: update_cache=yes
+
 - name: "Install Spidermonkey Libraries"
   apt: package="{{ item }}" state="latest"
   with_items:

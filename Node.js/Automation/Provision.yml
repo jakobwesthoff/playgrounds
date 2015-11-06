@@ -7,8 +7,6 @@
       - BashEnvironment
       - role: nvm
         versions:
-            - "0.8"
-            - "0.10"
             - "0.11"
             - "0.12"
         default: "0.12"
@@ -18,11 +16,11 @@
       - role: npm
         global:
           #  - { name: "grunt-cli", version: "*", use: ["0.10", "0.11"] }
-            - { name: "gulp", version: "*", use: ["0.10", "0.11"] }
-            - { name: "bower", version: "*", use: ["0.10", "0.11"] }
-            - { name: "uglify-js", version: "*", use: ["0.10", "0.11"] }
-            - { name: "coffee-script-redux", version: "*", use: ["0.10", "0.11"] }
-            - { name: "typescript", version: "*", use: ["0.10", "0.11"] }
-            - { name: "traceur", version: "*", use: ["0.10", "0.11"] }
+            - { name: "gulp", version: "*", use: ["0.12"] }
+            - { name: "bower", version: "*", use: ["0.12"] }
+            - { name: "uglify-js", version: "*", use: ["0.12"] }
+            - { name: "coffee-script-redux", version: "*", use: ["0.11"] }
+            - { name: "typescript", version: "*", use: ["0.12"] }
+            - { name: "traceur", version: "*", use: ["0.12"] }
         init:
-            - { dest: "{{ homedir }}/Playground", use: "0.10" }
+            - { dest: "{{ homedir }}/Playground", use: "0.12" }

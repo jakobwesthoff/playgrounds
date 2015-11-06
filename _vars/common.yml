@@ -1,0 +1,2 @@
+www_root: /srv/www
+roles_path: Library/Ansible/Roles
